@@ -1,0 +1,19 @@
+<div class="Absolute-Center">
+	<div class="login jumbotron center-block">
+	  <h2>Login</h2>
+	  <form role="form" (submit)="login($event, username.value, password.value)">
+	  <div class="form-group">
+		<label for="username">Username</label>
+		<input type="text" #username class="form-control" id="username" placeholder="Username" required />
+	  </div>
+	  <div class="form-group">
+		<label for="password">Password</label>
+		<input type="password" #password class="form-control" id="password" placeholder="Password" required />
+	  </div>
+	   <div class="form-actions">
+				<button type="submit" class="btn btn-success btn-block">Submit</button>
+				<a [routerLink]="['/signup']">Click here to Signup</a>
+		</div>  
+	</form>
+	</div>
+</div>
