@@ -4,6 +4,7 @@ import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
 import { Http } from '@angular/http';
 import { contentHeaders } from '../common/headers';
 import { MessageComponent } from '../common/message-component';
+import { Environment} from '../env';
 
 const styles   = require('./signup.css');
 const template = require('./signup.html');
@@ -25,7 +26,7 @@ export class Signup {
   	this.message = '';
     event.preventDefault();
     let body = JSON.stringify({ username, password, email});
-    this.http.post('http://localhost:3001/users', body, { headers: contentHeaders })
+    this.http.post(Environment.registerReq, body, { headers: contentHeaders })
       .subscribe(
         response => {
           localStorage.setItem('id_token', response.json().id_token);

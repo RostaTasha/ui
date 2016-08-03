@@ -4,6 +4,7 @@ import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
 import { Http, Headers } from '@angular/http';
 import { contentHeaders } from '../common/headers';
 import { MessageComponent } from '../common/message-component';
+import { Environment} from '../env';
 
 const styles   = require('./login.css');
 const template = require('./login.html');
@@ -24,7 +25,7 @@ export class Login {
 	this.message = '';
     event.preventDefault();
     let body = JSON.stringify({ username, password });
-    this.http.post('http://localhost:3001/sessions/create', body, { headers: contentHeaders })
+    this.http.post(Environment.loginReq, body, { headers: contentHeaders })
       .subscribe(
         response => {
           localStorage.setItem('id_token', response.json().id_token);
