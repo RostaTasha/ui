@@ -34,6 +34,7 @@ node_modules
 bower_components
 
 # Dist       #
+backend
 dist
 public/__build__/**
 .webpack.json
